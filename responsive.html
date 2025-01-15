@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage</title>
+  <style>
+    * {
+      margin: 20;
+      padding:0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #333;
+      color: white;
+      padding: 1em;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .container {
+      display: flex;
+      margin-top: 100px; /* Increased margin for better spacing */
+    }
+
+    .left-menu {
+      width: 20%;
+      background: #f4f4f4;
+      padding: 1em;
+      transition: all 0.3s;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 1em;
+    }
+
+    .right-panel {
+      width: 20%;
+      background: #f9f9f9;
+      padding: 1em;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1em;
+      background: #333;
+      color: white;
+      margin-top: auto;
+    }
+
+    .collapse {
+      display: none;
+    }
+
+    @media (max-width: 992px) {
+      .left-menu {
+        width: 30%;
+      }
+
+      .right-panel {
+        width: 30%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-menu,
+      .right-panel {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">My Resume</div>
+  <div class="container">
+    <div class="left-menu" id="left-menu">
+      <button onclick="toggleMenu()">Toggle Menu</button>
+      <p>Shivanand Patil</p>
+    </div>
+
+    <div class="main-content">
+      <h1>Main Content Area</h1>
+      <p>"Good [morning/afternoon/Evening], and thank you for giving me this opportunity. My name is Shivanand Patil, and I am currently pursuing a degree in Information Science and Engineering at M S Ramaiah Institute of Technology. Throughout my academic journey, I have developed a strong foundation in programming and problem-solving, which has sparked my passion for technology.
+
+        I have practical experience with web development technologies such as HTML, CSS, and JavaScript, and I am proficient in Python and Node.js. These skills have been honed through academic projects and personal initiatives. Additionally, I have a keen interest in applying my knowledge to real-world problems and contributing to innovative solutions.
+        
+        As a fresher, I am enthusiastic about learning from experienced professionals and bringing my dedication and skills to your team.Thank you for considering my application. I am excited to discuss how my skills and enthusiasm align with the needs of your organization."</p>
+    </div>
+
+    <div class="right-panel">
+      <h2>My Greeting to Company</h2>
+      <p>Thank you This opportunity</p>
+    </div>
+  </div>
+
+  <div class="footer">© 2025 Our Company. All rights reserved.</div>
+
+  <script>
+    function toggleMenu() {
+      const leftMenu = document.getElementById('left-menu');
+      leftMenu.classList.toggle('collapse');
+    }
+
+    function adjustPageSize() {
+      const screenWidth = window.innerWidth;
+      let scale = 1;
+
+      if (screenWidth <= 1600 && screenWidth > 992) {
+        scale = 0.9;
+      } else if (screenWidth <= 767 && screenWidth > 700) {
+        scale = 0.8;
+      } else if (screenWidth <= 700 && screenWidth > 600) {
+        scale = 0.75;
+      } else if (screenWidth <= 600) {
+        scale = 0.5;
+      }
+
+      document.body.style.transform = `scale(${scale})`;
+      document.body.style.transformOrigin = "top left";
+    }
+
+    window.addEventListener('resize', adjustPageSize);
+    adjustPageSize();
+  </script>
+</body>
+</html>

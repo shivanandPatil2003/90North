@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #333;
+      color: white;
+      padding: 1em;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .container {
+      margin-top: 80px; 
+      padding: 0 2em;
+    }
+
+    .header {
+      text-align: center;
+      padding: 2em 0;
+      background: #f4f4f4;
+    }
+
+    .header h1 {
+      margin-bottom: 0.5em;
+    }
+
+    .main-content {
+      padding: 2em 0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1em;
+      background: #333;
+      color: white;
+      margin-top: 2em;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">90 North</div>
+  <div class="container">
+    <div class="header">
+      <h1>Welcome</h1>
+      <p>this is Responsive Webpage</p>
+    </div>
+    <div class="main-content">
+      <h2>About Us</h2>
+      <p>90 North is a real estate investment manager with a global perspective, working with investors to expand and manage their international portfolio. Our name is derived from the exact top of the world, 90 degrees north, asserting that accuracy wins over the imprecision of the magnetic alternative. Doing great business. With a good conscience. We maintain that responsible investing is essential to undertaking profitable real estate transactions</p>
+      <h2>Our Services</h2>
+      <p>We offer a range of services including investment strategies, responsible investing, and asset management to deliver superior risk-adjusted returns.</p>
+    </div>
+  </div>
+  <div class="footer">© 2025 Our Company. All rights reserved.</div>
+
+  <script>
+    function toggleMenu() {
+      const leftMenu = document.getElementById('left-menu');
+      leftMenu.classList.toggle('collapse');
+    }
+
+    function adjustPageSize() {
+      const screenWidth = window.innerWidth;
+      let scale = 1;
+
+      if (screenWidth <= 1600 && screenWidth > 992) {
+        scale = 0.9;
+      } else if (screenWidth <= 767 && screenWidth > 700) {
+        scale = 0.8;
+      } else if (screenWidth <= 700 && screenWidth > 600) {
+        scale = 0.75;
+      } else if (screenWidth <= 600) {
+        scale = 0.5;
+      }
+
+      document.body.style.transform = `scale(${scale})`;
+      document.body.style.transformOrigin = "top left";
+    }
+
+    window.addEventListener('resize', adjustPageSize);
+    adjustPageSize();
+  </script>
+</body>
+</html>
